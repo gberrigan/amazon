@@ -1,0 +1,17 @@
+<%= form_with url: sessions_path, data: {turbo: false} do |form| %>
+  <div class="field mb-2">
+    <%= form.label :username%>
+    <%= form.text_field :username, class: 'form-control' %>
+  </div>
+ 
+  <div class="field">
+    <%= form.label :password%>
+    <%= form.password_field :password, class: 'form-control' %>
+  </div>
+ 
+  <div class="actions">
+    <%= form.submit :Login, class: 'btn btn-primary mt-2' %>
+  </div>
+
+  <%= link_to "Sign Up", new_user_path, class: 'btn btn-primary mt-3' %>  
+<% end %>
