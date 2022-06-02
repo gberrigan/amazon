@@ -1,5 +1,7 @@
 Rails.application.routes.draw do
 
+root "products#index"
+
 resources :products
 get '/register', to: 'users#new'
 get '/users/sign_in', to: 'sessions#new', as: :sign_in

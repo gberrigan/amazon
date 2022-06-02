@@ -3,7 +3,6 @@ class SessionsController < ApplicationController
     skip_before_action :authenticate!, except: :destroy
  
   def new
-    redirect_to root_path if current_user
   end
  
   def create
