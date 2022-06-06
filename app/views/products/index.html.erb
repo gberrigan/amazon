@@ -14,7 +14,7 @@
             <p class="card-subtitle  mb-2 text-muted text-decoration-line-through">List Price $<%= item.list_price %><p>
             <p class="card-subtitle fst-italic mb-2">Our Price $<%= item.our_price %><p>
             <p class="card-text fw-light"><%= item.description.truncate(200, separator: " ") %></p>
-            <%= button_to "Add to Cart", add_to_cart_path, params:{product_id: item.id}%>
+            <%= button_to "Add to Cart", add_to_cart_path,:class=>"btn btn-secondary btn-sm", params:{product_id: item.id}%>
           </div>
         </div>
       <% end %>

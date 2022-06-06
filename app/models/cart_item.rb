@@ -5,8 +5,4 @@ class CartItem < ApplicationRecord
 
     delegate :calculated_price, to: :product
     delegate :name, to: :product
-
-    def name
-        product.name
-    end
 end
