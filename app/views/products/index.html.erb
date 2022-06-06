@@ -1,6 +1,11 @@
  <h1 class="text-center mb-5"> Products </h1>
 
     <div class="row">
+    <% if flash[:notice]%>
+    <div class="alert alert-success" role="alert">
+      <%= flash[:notice] %>
+    </div>
+    <%end%>
       <% @products.each do |item| %>
         <div class="card mb-3 mx-1 col-3" style="width: 18rem;">
           <div class="card-body">
