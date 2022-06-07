@@ -1,6 +1,7 @@
 class CartsController < ApplicationController
 
     def index
+      @cart_items = CartItem.where(user: current_user)
     end
 
     def add_to_cart

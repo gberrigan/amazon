@@ -5,4 +5,11 @@ class CartItem < ApplicationRecord
 
     delegate :calculated_price, to: :product
     delegate :name, to: :product
+    delegate :our_price, to: :product
+    delegate :description, to: :product
+
+
+    def total_product_price
+        our_price * quantity
+    end
 end
