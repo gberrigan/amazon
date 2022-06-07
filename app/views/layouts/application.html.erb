@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html>
   <head>
-    <title>Hulk Hands</title>
+    <title>Greg's Shop</title>
     <meta name="viewport" content="width=device-width,initial-scale=1">
     <%= csrf_meta_tags %>
     <%= csp_meta_tag %>
@@ -18,7 +18,7 @@
 
       <ul class="nav col-12 col-md-auto mb-2 justify-content-center mb-md-0">
         <li><%= link_to 'Home', root_path, :class=>"nav-link px-2 link-secondary"%></li>
-        <li><a href="#" class="nav-link px-2 link-dark">Checkout</a></li>
+        <li><%= link_to 'Checkout', checkout_path, :class=>"nav-link px-2 link-secondary"%></li>
       </ul>
 
       <div class="col-md-3 text-end">

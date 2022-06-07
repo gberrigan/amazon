@@ -1,4 +1,7 @@
-class CartController < ApplicationController
+class CartsController < ApplicationController
+
+    def index
+    end
 
     def add_to_cart
     cart_item = CartItem.find_by(user: current_user, product_id: params.require(:product_id))

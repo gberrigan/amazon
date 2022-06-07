@@ -9,6 +9,8 @@ delete '/users/sign_out', to: 'sessions#destroy', as: :sign_out
 resources :sessions, only: [:create]
 resources :users
 
+get '/checkout', to: 'carts#index', as: :checkout
+
 post '/cart', to: 'cart#add_to_cart', as: :add_to_cart
 put '/cart', to: 'cart#update_quantities', as: :update_quantities
 get '/cart', to: 'cart#index', as: :view_cart
