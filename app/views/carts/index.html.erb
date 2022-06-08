@@ -1,10 +1,41 @@
 <div class="container">
   <div class="row">
+    <%= form_for :order do |f| %>
+
+      <%= f.label :firstname, 'First name'  %>
+      <%= f.text_field :firstname, class: 'form-control mb-3'%>
+
+      <%= f.label :lastname %>
+      <%= f.text_field :lastname, class: 'form-control mb-3'%>
+
+      <%= f.label :email %>
+      <%= f.email_field :email, placeholder: 'email@example.com', class: 'form-control mb-3'%>
+
+      <%= f.label :address %>
+      <%= f.text_field :address, class: 'form-control mb-3'%>
+      
+      <%= f.label :country %> <br>
+      <%= f.country_select :country, priority_countries = ["United States"], options = {}, html_options = {:class => "form-control mb-3"}%>
+
+      <%= f.label :state %>
+      <%= f.text_field :state, placeholder: 'OH', class: 'form-control mb-3'%>
+
+      <%= f.label :zipcode %>
+      <%= f.text_field :address, class: 'form-control mb-3'%>
+
+      <h2> Payment </h2>
+      <%= f.collection_radio_buttons :payment_type, [OpenStruct.new({id: 0, text: "Credit"}), OpenStruct.new({id: 1, text: "Debit"})], :id, :text, class: '' %>
+
+    <% end %>
+  </div>
+
+
+
+  <div class="row">
         <div class="col-md-4 order-md-2 mb-4">
           <h4 class="d-flex justify-content-between align-items-center mb-3">
             <span class="text-muted">Your cart</span>
           </h4>
-
           <ul class="list-group mb-3">
             <% @cart_items.each do |item| %>            
               <li class="list-group-item d-flex justify-content-between lh-condensed">
