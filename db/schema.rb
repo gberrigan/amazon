@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema[7.0].define(version: 2022_06_02_164524) do
+ActiveRecord::Schema[7.0].define(version: 2022_06_08_191724) do
   create_table "cart_items", force: :cascade do |t|
     t.integer "quantity"
     t.integer "user_id"
@@ -19,6 +19,35 @@ ActiveRecord::Schema[7.0].define(version: 2022_06_02_164524) do
     t.datetime "updated_at", null: false
     t.index ["product_id"], name: "index_cart_items_on_product_id"
     t.index ["user_id"], name: "index_cart_items_on_user_id"
+  end
+
+  create_table "order_items", force: :cascade do |t|
+    t.integer "order_id"
+    t.integer "product_id"
+    t.decimal "our_price"
+    t.string "quantity"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["order_id"], name: "index_order_items_on_order_id"
+    t.index ["product_id"], name: "index_order_items_on_product_id"
+  end
+
+  create_table "orders", force: :cascade do |t|
+    t.integer "user_id"
+    t.string "firstname"
+    t.string "lastname"
+    t.string "email"
+    t.string "address"
+    t.string "country"
+    t.string "state"
+    t.integer "zipcode"
+    t.string "ccname"
+    t.integer "ccnumber"
+    t.date "expiration"
+    t.integer "cvv"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["user_id"], name: "index_orders_on_user_id"
   end
 
   create_table "products", force: :cascade do |t|
