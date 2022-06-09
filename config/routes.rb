@@ -11,9 +11,9 @@ resources :users
 
 get '/checkout', to: 'carts#index', as: :checkout
 
-post '/cart', to: 'cart#add_to_cart', as: :add_to_cart
-put '/cart', to: 'cart#update_quantities', as: :update_quantities
-get '/cart', to: 'cart#index', as: :view_cart
+post '/carts', to: 'carts#add_to_cart', as: :add_to_cart
+put '/carts', to: 'carts#update_quantities', as: :update_quantities
+get '/carts', to: 'carts#index', as: :view_cart
 
 resources :orders, only: [:create]
 
