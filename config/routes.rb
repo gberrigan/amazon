@@ -9,11 +9,11 @@ delete '/users/sign_out', to: 'sessions#destroy', as: :sign_out
 resources :sessions, only: [:create]
 resources :users
 
+get '/confirm_cart', to: 'carts#show', as: :confirm_cart
 get '/checkout', to: 'carts#index', as: :checkout
-
 post '/carts', to: 'carts#add_to_cart', as: :add_to_cart
-put '/carts', to: 'carts#update_quantities', as: :update_quantities
-get '/carts', to: 'carts#index', as: :view_cart
+get '/carts/edit_cart', to: 'carts#edit', as: :edit_cart
+patch '/carts/edit_cart', to: 'carts#update', as: :update_quantities
 
 resources :orders, only: [:create]
 

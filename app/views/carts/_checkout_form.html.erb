@@ -1,0 +1,69 @@
+<div class='row'>
+    <%= form_for :order, url: '/orders', data: {turbo: false} do |f| %>
+
+    <h2> Shipping </h2>
+
+    <div class='row'>
+      <div class='col'>
+        <%= f.label :firstname, 'First name'  %>
+        <%= f.text_field :firstname, class: 'form-control mb-3'%>
+      </div>
+      <div class='col'>
+        <%= f.label :lastname, 'Last name' %>
+        <%= f.text_field :lastname, class: 'form-control mb-3'%>
+      <div>   
+    </div>
+
+    <div class='row'>
+      <%= f.label :email %>
+      <%= f.email_field :email, placeholder: 'email@example.com', class: 'form-control mb-3'%>
+    </div>
+
+    <div class='row'>
+      <%= f.label :address %>
+      <%= f.text_field :address, class: 'form-control mb-3'%>
+    </div>
+
+    <div class='row'>
+      <div class='col'> 
+        <%= f.label :country %> <br>
+        <%= f.country_select :country, priority_countries = ["United States"], options = {}, html_options = {:class => "form-select mb-3"}%>
+      </div>
+      <div class='col'>
+        <%= f.label :state %>
+        <%= f.text_field :state, placeholder: 'OH', class: 'form-control mb-3'%>
+      </div>
+      <div class='col'>
+        <%= f.label :zipcode %>
+        <%= f.text_field :zipcode, class: 'form-control mb-3'%>
+      </div>
+    </div>
+
+    <h2> Payment </h2>
+
+      <%= f.label :payment_type%><br>
+      <%= f.collection_radio_buttons :payment_type, [OpenStruct.new({id: 0, text: "Credit"}), OpenStruct.new({id: 1, text: "Debit"})],
+          :id, :text, class: 'form-check-input'%><br>
+
+      <%= f.label :ccname, 'Name on card'%>
+      <%= f.text_field :ccname, class: 'form-control mb-3'%>
+
+      <%= f.label :ccnumber, 'Credit card' %>
+      <%= f.text_field :ccnumber, class: 'form-control mb-3'%>
+
+      <%= f.label :expiration, 'Expiration date'%>
+      <%= f.date_select :expiration,
+          {discard_day: true, 
+          use_month_numbers: true, 
+          start_year: Date.today.year, 
+          end_year: (Date.today.year+15),
+          order: [:month, :year]},
+          class: 'form-select mb-3'%>
+
+      <%= f.label :cvv, 'CVV'%>
+      <%= f.text_field :cvv, class: 'form-control mb-3'%>
+
+      <%= f.submit :Checkout, class: 'btn btn-primary mt-2 mb-5'%>
+
+    <% end %>
+  </div>
