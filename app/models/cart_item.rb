@@ -14,6 +14,7 @@ class CartItem < ApplicationRecord
     end
 
     def total_cart_price
+
     end
 end
 
