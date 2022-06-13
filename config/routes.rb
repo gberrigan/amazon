@@ -14,7 +14,7 @@ get '/confirm_cart', to: 'carts#show', as: :confirm_cart
 get '/checkout', to: 'carts#index', as: :checkout
 post '/carts', to: 'carts#add_to_cart', as: :add_to_cart
 get '/carts/edit_cart', to: 'carts#edit', as: :edit_cart
-patch '/carts/edit_cart', to: 'carts#update', as: :update_quantities
+patch '/edit_cart/:id', to: 'carts#update', as: :update_quantities
 delete 'confirm_cart', to: 'carts#destroy', as: :remove_from_cart
 
 resources :orders, only: [:create]

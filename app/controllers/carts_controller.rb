@@ -24,7 +24,7 @@ class CartsController < ApplicationController
     end
 
     def update
-        @cart_item = CartItem.find_by_id(params[:cart_item][:id].to_i)
+        @cart_item = CartItem.find(params[:id])
         if params[:cart_item][:quantity].to_i == 0
           @cart_item.destroy
           redirect_to confirm_cart_path

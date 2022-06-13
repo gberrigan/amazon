@@ -15,10 +15,9 @@
                   <small class="text-muted"><%= item.description.truncate (100)%></small>        
               </div>
               <span class="text-muted">$<%= item.total_product_price %>
-              <%= form_for item, url: edit_cart_path, method: :patch do |form| %>                    
+              <%= form_for item, url: update_quantities_path(id: item) do |form| %>                    
                 <%= form.select :quantity, (0..99), :class => 'form-select'%>
-                <%= form.submit "Update", :class => 'btn btn-secondary btn-sm' %> 
-                <%= form.hidden_field :id %>                                  
+                <%= form.submit "Update", :class => 'btn btn-secondary btn-sm' %>                                   
               <% end %>
               </span>
             </li>    
