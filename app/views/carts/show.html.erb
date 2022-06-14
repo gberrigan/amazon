@@ -1,3 +1,10 @@
+
+<% if flash[:notice]%>
+    <div class="alert alert-success" role="alert">
+      <%= flash[:notice] %>
+    </div>
+<%end%>
+
 <%= render 'confirm_cart' %>
 
 <% if @cart_items.empty? %>
