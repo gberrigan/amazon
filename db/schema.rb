@@ -10,13 +10,14 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema[7.0].define(version: 2022_06_08_191724) do
+ActiveRecord::Schema[7.0].define(version: 2022_06_14_175732) do
   create_table "cart_items", force: :cascade do |t|
     t.integer "quantity"
     t.integer "user_id"
     t.integer "product_id"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+    t.integer "shipping_option_id"
     t.index ["product_id"], name: "index_cart_items_on_product_id"
     t.index ["user_id"], name: "index_cart_items_on_user_id"
   end
@@ -58,6 +59,12 @@ ActiveRecord::Schema[7.0].define(version: 2022_06_08_191724) do
     t.string "image_location"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+  end
+
+  create_table "shipping_options", force: :cascade do |t|
+    t.string "option"
+    t.boolean "member_only"
+    t.integer "price_per_item"
   end
 
   create_table "users", force: :cascade do |t|

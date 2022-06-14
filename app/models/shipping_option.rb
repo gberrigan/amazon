@@ -1,0 +1,4 @@
+class ShippingOption < ApplicationRecord
+
+    
+end

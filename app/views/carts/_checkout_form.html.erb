@@ -41,13 +41,6 @@
 
 
     <h2> Payment </h2>
-    
-    <div class='my-3'>
-      <div class='form-check'>
-        <%= f.collection_radio_buttons :payment_type, [OpenStruct.new({id: 0, text: "Credit"}), OpenStruct.new({id: 1, text: "Debit"})],
-            :id, :text, options = {}, html_options = {:class => "form-check-input form-check-input"}%>
-      </div>
-    </div>
 
     <div class='row gy-3'>
 
