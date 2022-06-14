@@ -30,4 +30,10 @@
                 <span class="text-muted">$5.99</span>
               </li>    
                 <% end %>
+              <li class="list-group-item d-flex justify-content-between lh-condensed">
+                <div>
+                  <h6 class="my-0">Total:</h6>    
+                </div>
+                <span class="text-muted">$<%=current_user.total_cart_value%></span>
+              </li>   
           </ul>

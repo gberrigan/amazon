@@ -11,7 +11,7 @@
       <div class='col-6'>
         <%= f.label :lastname, 'Last name', class: 'form-label' %>
         <%= f.text_field :lastname, class: 'form-control mb-3'%>
-      <div>   
+      </div>   
 
       <div class='col-12'>
         <%= f.label :email, class: 'form-label' %>
@@ -45,7 +45,7 @@
     <div class='my-3'>
       <div class='form-check'>
         <%= f.collection_radio_buttons :payment_type, [OpenStruct.new({id: 0, text: "Credit"}), OpenStruct.new({id: 1, text: "Debit"})],
-            :id, :text, class: 'form-check'%><br>
+            :id, :text, options = {}, html_options = {:class => "form-check-input form-check-input"}%>
       </div>
     </div>
 
