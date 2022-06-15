@@ -5,10 +5,13 @@
     </div>
 <%end%>
 
-<%= render 'confirm_cart' %>
-
-<% if @cart_items.empty? %>
-    <%= link_to 'Return to Products', root_path, :class=>"btn btn-primary me-md-2" %>
+<% if @cart_items.any? %>
+    <div class='container-fluid'>
+        <%= render 'confirm_shipping' %>
+        <%= render 'confirm_cart' %>
+        <%= link_to 'Proceed to Checkout', checkout_path, :class=>"btn btn-primary me-md-2" %>
+    </div>
 <% else %>
-    <%= link_to 'Proceed to Checkout', checkout_path, :class=>"btn btn-primary me-md-2" %>
+<p> Your cart is currently empty </p>
+<%= link_to 'Return to Products', root_path, :class=>"btn btn-primary me-md-2" %>
 <% end %>

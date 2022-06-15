@@ -1,28 +1,37 @@
-
-<div class='container-fluid'>
   <div class="col-lg order-md-2 mb-4">
-      <h4 class="d-flex justify-content-between align-items-center mb-3">
-          <span class="text-muted">Confirm cart</span>
-      </h4>
-      <% if @cart_items.empty? %>
-        <p> Your cart is currently empty </p>
-      <% else %>
-        <ul class="list-group mb-3">
-          <% @cart_items.each do |item| %>            
-            <li class="list-group-item d-flex justify-content-between lh-condensed">
-              <div>
-                <h6 class="my-0"><%= item.name%></h6>
-                  <small class="text-muted"><%= item.description.truncate (100)%></small>        
-              </div>
-              <span class="text-muted">$<%= item.total_product_price %>
-              <%= form_for item, url: update_quantities_path(id: item) do |form| %>                    
-                <%= form.select :quantity, (0..99), :class => 'form-select'%>
-                <%= form.submit "Update", :class => 'btn btn-secondary btn-sm' %>                                   
-              <% end %>
-              </span>
-            </li>    
-          <% end %>
-        </ul>
-    <% end %>
+    <h4 class="d-flex justify-content-between align-items-center mb-3">
+      <span class="text-muted">Confirm cart</span>
+    </h4>
+    <ul class="list-group mb-3">
+      <% @cart_items.each do |item| %>            
+        <li class="list-group-item d-flex justify-content-between lh-condensed">
+          <div>
+            <h6 class="my-0"><%= item.name%></h6>
+            <small class="text-muted"><%= item.description.truncate (100)%></small>        
+          </div>
+          <span class="text-muted">$<%= item.total_product_price %>
+            <%= form_for item, url: update_quantities_path(id: item) do |form| %>                    
+              <%= form.select :quantity, (0..99), :class => 'form-select'%>
+              <%= form.submit "Update", :class => 'btn btn-secondary btn-sm' %>                                   
+            <% end %>
+          </span>
+        </li>     
+      <% end %>
+      <li class="list-group-item d-flex justify-content-between lh-condensed">
+        <div>
+          <h6 class="my-0">Total Item Value:</h6>    
+        </div>
+        <span class="text-muted">$<%=number_with_precision(current_user.total_cart_value, precision: 2)%></span>
+      </li>
+      <li class="list-group-item d-flex justify-content-between lh-condensed">
+        <div>
+          <h6 class="my-0">Estimated Shipping:</h6>    
+        </div>
+        <% if current_user.member_plus%>
+        <span class="text-muted">$<%=number_with_precision(current_user.total_shipping_cost, precision: 2)%></span>
+        <% else %>
+        <span class="text-muted"></span>
+        <% end %>
+      </li>
+    </ul>
   </div>
-</div>

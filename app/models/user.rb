@@ -14,4 +14,11 @@ class User < ApplicationRecord
         total_value
     end
 
+    def total_shipping_cost
+        shipping_cost = 0
+        self.cart_items.each do |item|
+            shipping_cost += (item.shipping_option.price_per_item * item.quantity)
+        end
+        shipping_cost
+    end
 end

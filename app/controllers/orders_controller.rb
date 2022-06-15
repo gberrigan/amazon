@@ -32,4 +32,10 @@ def order_params
     params.require(:order).permit(:firstname, :lastname, :email, :address, :country, :state, :zipcode, :ccname, :ccnumber, :expiration, :cvv)
 end
 
+def refresh_shipping
+    if !current_user.member_plus && current_user.total_cart_value > 35.00
+      current_user.cart_items.update_all(shipping_option_id: ShippingOption.find_by(name: '5 Day Free').id)
+    end
+  end
+
 end

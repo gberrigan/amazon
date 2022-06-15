@@ -1,7 +1,7 @@
 
-<h2> Shipping </h2>
-    <%= form_for :order, url: '/orders', data: {turbo: false} do |f| %>
-
+<%= form_for :order, url: '/orders', data: {turbo: false} do |f| %>
+  <h2> Shipping </h2>
+  
     <div class='row g-3'>
       <div class='col-6'>
         <%= f.label :firstname, 'First name', class: 'form-label'%>
