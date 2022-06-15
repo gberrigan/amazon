@@ -9,6 +9,7 @@ class CartItem < ApplicationRecord
     delegate :our_price, to: :product
     delegate :description, to: :product
     delegate :price_per_item, to: :shipping_option
+    delegate :option, to: :shipping_option
 
 
     def total_product_price

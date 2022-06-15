@@ -21,16 +21,16 @@
         <div>
           <h6 class="my-0">Total Item Value:</h6>    
         </div>
-        <span class="text-muted">$<%=number_with_precision(current_user.total_cart_value, precision: 2)%></span>
+        <span class="text-muted">$<%=number_with_precision(current_user.total_item_value, precision: 2)%></span>
       </li>
       <li class="list-group-item d-flex justify-content-between lh-condensed">
         <div>
           <h6 class="my-0">Estimated Shipping:</h6>    
         </div>
-        <% if current_user.member_plus%>
-        <span class="text-muted">$<%=number_with_precision(current_user.total_shipping_cost, precision: 2)%></span>
+        <% if !current_user.member_plus && current_user.total_item_value > 35.00 %>
+          <span class="text-muted">$0.00</span>
         <% else %>
-        <span class="text-muted"></span>
+        <span class="text-muted">$<%=number_with_precision(current_user.total_shipping_cost, precision: 2)%></span>
         <% end %>
       </li>
     </ul>

@@ -7,7 +7,7 @@ class OrdersController < ApplicationController
         if order.save
             order_item_unsaved = false
             current_user.cart_items.each do |cart_item|
-                ord_item = order.order_items.build(product_id: cart_item.product_id, our_price: cart_item.product.our_price, quantity: cart_item.quantity)
+                ord_item = order.order_items.build(product_id: cart_item.product_id, our_price: cart_item.product.our_price, quantity: cart_item.quantity, shipping_option_id: cart_item.shipping_option_id)
                 if ord_item.save
                 else 
                     order_item_unsaved = true
@@ -33,7 +33,7 @@ def order_params
 end
 
 def refresh_shipping
-    if !current_user.member_plus && current_user.total_cart_value > 35.00
+    if current_user.non_member_free_shipping?
       current_user.cart_items.update_all(shipping_option_id: ShippingOption.find_by(name: '5 Day Free').id)
     end
   end

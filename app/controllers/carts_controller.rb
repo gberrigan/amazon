@@ -40,7 +40,6 @@ class CartsController < ApplicationController
     end
 
     def update_shipping
-      puts params.to_s
       shipping_option = ShippingOption.find_by(id: params[:shipping_option_id])
       current_user.cart_items.update_all(shipping_option_id: shipping_option.id)
       redirect_to confirm_cart_path
