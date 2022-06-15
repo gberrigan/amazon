@@ -10,7 +10,6 @@ class Order < ApplicationRecord
     validates :zipcode, presence: true, numericality: { only_integer: true }
 
     #CC information
-    validates :payment_type, presence: true
     validates :ccname, presence: true
     validates :ccnumber, presence: true, length: {is: 16}, numericality: { only_integer: true } 
     validates :expiration, presence: true

@@ -27,11 +27,7 @@
         <div>
           <h6 class="my-0">Estimated Shipping:</h6>    
         </div>
-        <% if !current_user.member_plus && current_user.total_item_value > 35.00 %>
-          <span class="text-muted">$0.00</span>
-        <% else %>
-        <span class="text-muted">$<%=number_with_precision(current_user.total_shipping_cost, precision: 2)%></span>
-        <% end %>
+          <span class="text-muted">$<%=number_with_precision(current_user.total_shipping_cost, precision: 2)%></span>
       </li>
     </ul>
   </div>
