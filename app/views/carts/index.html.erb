@@ -1,11 +1,17 @@
 <div class='container'>
+    <% if flash[:notice]%>
+        <div class="alert alert-danger" role="alert">
+            <%= flash[:notice] %>
+        </div>
+    <%end%>
+
     <div class='row g-5'>
         <div class='col-md-5 col-lg-4 order-md-last'>
-            <%= render 'checkout_cart' %>
+            <%= render 'carts/checkout_cart', order: @order, cart_items: @cart_items %>
         </div>
 
         <div class='col-md-7 col-lg-8'>
-            <%= render 'checkout_form' %>
+            <%= render 'carts/checkout_form', order: @order, cart_items: @cart_items %>
         </div>
     </div>
 </div>

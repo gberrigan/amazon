@@ -1,6 +1,7 @@
 class CartsController < ApplicationController
 
     def index
+      @order = Order.new
       @cart_items = CartItem.where(user: current_user)
     end
 
