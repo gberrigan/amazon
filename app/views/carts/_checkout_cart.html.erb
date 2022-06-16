@@ -20,11 +20,12 @@
                 <div>
                   <h6 class="my-0">Total Item Value:</h6>    
                 </div>
-                <span class="text-muted">$<%=current_user.total_item_value%></span>
+                <span class="text-muted">$<%=number_with_precision(current_user.total_item_value, precision: 2)%></span>
               </li>          
               <li class="list-group-item d-flex justify-content-between lh-condensed">
                 <div>
-                  <h6 class="my-0">Shipping & Handling:</h6>      
+                  <h6 class="my-0">Shipping & Handling:</h6>
+                  <small class="text-muted"><%=current_user.cart_items.first.option%></small>      
                 </div>
                 <span class="text-muted">$<%=number_with_precision(current_user.total_shipping_cost, precision: 2)%></span>
               </li>
@@ -32,6 +33,6 @@
                 <div>
                   <h6 class="my-0">Final Cost:</h6>    
                 </div>
-                <span class="text-muted">$<%=current_user.final_cost%></span>
+                <span class="text-muted">$<%=number_with_precision(current_user.final_cost, precision: 2)%></span>
               </li>      
           </ul>
