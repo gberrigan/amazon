@@ -8,23 +8,34 @@
         </ul>
     </div>
     <% end %>
-  <div>
-    <%= form.label :username, style: "display: block" %>
-    <%= form.text_field :username %>
+  <div class='col-4'>
+    <%= form.label :username, class: 'form-label'%>
+    <%= form.text_field :username, class: 'form-control', required: true %>
   </div>
 
-  <div>
-    <%= form.label :password, style: "display: block" %>
-    <%= form.text_field :password %>
+  <div class='col-4'>
+    <%= form.label :password, class: 'form-label' %>
+    <%= form.password_field :password, class: 'form-control', required: true %>
   </div>
 
-  <div>
-  <%= form.label :password_confirmation, style: "display: block"%>
-  <%= form.password_field :password_confirmation %>
-</div>
+  <div class='col-4'>
+    <%= form.label :password_confirmation, class: 'form-label'%>
+    <%= form.password_field :password_confirmation, class: 'form-control mb-3', required: true %>
+  </div>
+
+  <div class="card col-4">
+        <div class="card-body">
+          <h5 class="card-title">Member+</h5>
+          <p class="card-text">Enrolling in our unique Member+ program offers you guaranteed 2-Day shipping on all orders with the option of overnight shipping at a flat rate per order item. Member+ subscriptions begin at $59.99 annually and will be billed after you've placed your first order with us.</p>
+          <%= form.label :member_plus, 'I would like to enroll in the Member+ program', class: 'font-weight-bold' %>
+          <%= form.check_box :member_plus, options ={}, checked_value = 1, unchecked_value = 0 %>
+        </div>
+      </div>
 
   <div class='mt-3'>
-    <%= form.submit %>
+    <%= form.submit "Sign-up", class: 'btn btn-primary' %>
   </div>
 
 <% end %>
+
+
