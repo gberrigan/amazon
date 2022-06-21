@@ -1,4 +1,10 @@
-<h1>New user</h1>
+<h1>Sign-up</h1>
+
+    <% if flash[:notice]%>
+        <div class="alert alert-danger" role="alert">
+            <%= flash[:notice] %>
+        </div>
+    <%end%>
 
 <%= render "form", user: @user %>
 

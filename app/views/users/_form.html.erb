@@ -1,8 +1,8 @@
-<%= form_for user, url: '/users', data: {turbo: false} do |form| %>
-    <% if user.errors.any? %>
+<%= form_for @user, data: {turbo: false} do |form| %>
+    <% if @user.errors.any? %>
     <div class="alert alert-danger" role="alert">
         <ul>
-            <% user.errors.full_messages.each do |msg| %>
+            <% @user.errors.full_messages.each do |msg| %>
                 <li><%= msg %></li> 
             <% end %>
         </ul>

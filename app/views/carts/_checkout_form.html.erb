@@ -57,8 +57,8 @@
         <%= f.label :ccnumber, 'Credit card', class: 'form-label' %>
         <%= f.number_field :ccnumber, class: 'form-control',
             required: true,
-            min: 16,
-            max: 16,
+            minimum: 16,
+            maximum: 16,
             oninvalid: "this.setCustomValidity('entry must be 16 characters')"%>
       </div>
 
