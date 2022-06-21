@@ -4,7 +4,6 @@ class CartItem < ApplicationRecord
     belongs_to :product
     belongs_to :shipping_option
 
-    delegate :calculated_price, to: :product
     delegate :name, to: :product
     delegate :our_price, to: :product
     delegate :description, to: :product
@@ -13,7 +12,7 @@ class CartItem < ApplicationRecord
 
 
     def total_product_price
-        our_price * quantity
+        our_price*quantity
     end
 
 end

@@ -1,5 +1,5 @@
 class User < ApplicationRecord
-    validates :username, presence: true
+    validates :username, presence: true, uniqueness: true
     validates :password, presence: true
 
     has_secure_password
@@ -28,7 +28,7 @@ class User < ApplicationRecord
         total_item_value + total_shipping_cost
     end
 
-  private
+private
     def non_member_free_shipping?
         !self.member_plus && self.total_item_value > 35.00
     end
