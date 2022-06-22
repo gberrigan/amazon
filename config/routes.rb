@@ -7,7 +7,7 @@ get '/register', to: 'users#new', as: :register
 get '/users/sign_in', to: 'sessions#new', as: :sign_in
 delete '/users/sign_out', to: 'sessions#destroy', as: :sign_out
 resources :sessions, only: [:create]
-resources :users, only: [:new, :create]
+resources :users
 
 
 get '/confirm_cart', to: 'carts#show', as: :confirm_cart
