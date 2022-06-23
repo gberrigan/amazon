@@ -37,7 +37,7 @@ private
 
     def refresh_shipping
         if !current_user.member_plus && current_user.total_item_value > 35.00
-        current_user.cart_items.update_all(shipping_option_id: ShippingOption.find_by(option: '5 Day Free').id)
+        current_user.cart_items.update_all(shipping_option_id: ShippingOption.find_by(option: '5-7 Business Days (Free)').id)
         end
     end
 
